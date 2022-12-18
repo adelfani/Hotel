@@ -23,12 +23,16 @@ Route::get('/rooms', function () {
 })->name('rooms');
 
 Route::get('/reservation', function () {
-    echo 'reservation';
+    return view('reservation')->name('reservation');
 })->name('reservation');
 
 Route::get('/about', function () {
-    echo 'about';
+    return view('about')->name('about');
 })->name('about');
+
+Route::get('/rooms/{id}', function ($id) {
+    echo $id;
+});
 
 Auth::routes();
 
