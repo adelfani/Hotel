@@ -16,7 +16,19 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('landingPage');
-});
+})->name('landingPage');
+
+Route::get('/rooms', function () {
+    return view('rooms');
+})->name('rooms');
+
+Route::get('/reservation', function () {
+    echo 'reservation';
+})->name('reservation');
+
+Route::get('/about', function () {
+    echo 'about';
+})->name('about');
 
 Auth::routes();
 

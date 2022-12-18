@@ -8,10 +8,10 @@
       </div>
       <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-          <a class="nav-link" href="#">Rooms</a>
-          <a class="nav-link" href="#">Reservation</a>
-          <a class="nav-link" href="#">About</a>
+          <a class="nav-link {{ request()->routeIs('landingPage') ? 'active' : '' }}" aria-current="page" href="{{ route('landingPage') }}">Home</a>
+          <a class="nav-link {{ request()->routeIs('rooms') ? 'active' : '' }}" href="{{ route('rooms') }}">Rooms</a>
+          <a class="nav-link {{ request()->routeIs('reservation') ? 'active' : '' }}" href="{{ route('reservation') }}">Reservation</a>
+          <a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">About</a>
         </div>
       </div>
     </div>
