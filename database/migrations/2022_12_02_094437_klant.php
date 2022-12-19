@@ -14,12 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('klant', function (Blueprint $table) {
-           $table->uuid('id')->primary();
-           $table->date('datum_van_boeking');
+           $table->id();
+           $table->dateTime('datum_van_boeking');
            $table->string('naam', 50);
            $table->string('address', 50);
-           $table->date('Aankomstdatum');
-           $table->date('Vertrekdatum');
+           $table->dateTime('Aankomstdatum');
+           $table->dateTime('Vertrekdatum');
+           $table->integer('Creditkaartnummer');
            $table->foreignId('Kamernummer')->nullable(false);
         });
     }

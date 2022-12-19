@@ -16,13 +16,12 @@ return new class extends Migration
         Schema::create('kamer', function (Blueprint $table) {
            $table->string('sort', 50);
            $table->string('foto', 100);
-           $table->integer('Kamernummer')->nullable(false);
+           $table->integer('Kamernummer')->nullable(false)->primary();
            $table->float('opervlakte');
-           $table->boolean('beschikbaarheid');
+           $table->boolean('minibar_beschikbaarheid');
+           $table->boolean('bad_beschikbaarheid');
            $table->integer('aantal_personen');
            $table->binary('prijs');
-           $table->date('boeking_datum');
-           $table->primary('Kamernummer');
         });
     }
 
