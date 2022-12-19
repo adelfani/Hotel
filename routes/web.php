@@ -23,11 +23,11 @@ Route::get('/rooms', function () {
 })->name('rooms');
 
 Route::get('/reservation', function () {
-    return view('reservation')->name('reservation');
+    return view('reservation');
 })->name('reservation');
 
 Route::get('/about', function () {
-    return view('about')->name('about');
+    return view('about');
 })->name('about');
 
 Route::get('/rooms/{id}', function ($id) {

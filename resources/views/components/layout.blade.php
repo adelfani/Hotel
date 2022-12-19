@@ -28,6 +28,7 @@
     @csrf
     <h1 class="position-absolute top-50 start-50 translate-middle text-black-50 p-5">{{ $title }}</h1>
     <img src="{{ asset('images/hero_4.jpg') }}" class="img-fluid mb-5">
+    
     {{ $slot }}
 
     <x-footer />
