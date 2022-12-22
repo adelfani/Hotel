@@ -13,15 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('klant', function (Blueprint $table) {
+        Schema::create('klants', function (Blueprint $table) {
            $table->id();
            $table->dateTime('datum_van_boeking');
            $table->string('naam', 50);
-           $table->string('address', 50);
+           $table->string('address', 150);
            $table->dateTime('Aankomstdatum');
            $table->dateTime('Vertrekdatum');
-           $table->integer('Creditkaartnummer');
+           $table->string('Creditkaartnummer');
            $table->foreignId('Kamernummer')->nullable(false);
+           $table->timestamps();
         });
     }
 
@@ -32,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::drop('klant');
+        Schema::drop('klants');
     }
 };

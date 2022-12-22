@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Kamer;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,13 @@ class KlantFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'datum_van_boeking' => fake()->date(),
+            'naam' => fake()->name(),
+            'address' => fake()->address(),
+            'Aankomstdatum' => fake()->date(),
+            'Vertrekdatum' => fake()->date(),
+            'Creditkaartnummer' => fake()->creditCardNumber(),
+            'Kamernummer' => Kamer::factory()
         ];
     }
 }

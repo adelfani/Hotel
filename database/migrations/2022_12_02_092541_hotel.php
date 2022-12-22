@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('kamer', function (Blueprint $table) {
+        Schema::create('kamers', function (Blueprint $table) {
            $table->string('sort', 50);
            $table->string('foto', 100);
            $table->integer('Kamernummer')->nullable(false)->primary();
@@ -22,6 +22,7 @@ return new class extends Migration
            $table->boolean('bad_beschikbaarheid');
            $table->integer('aantal_personen');
            $table->binary('prijs');
+           $table->timestamps();
         });
     }
 
@@ -32,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::drop('hotel');
+        Schema::drop('kamers');
     }
 };

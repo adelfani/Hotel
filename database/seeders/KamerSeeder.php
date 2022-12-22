@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Kamer;
+use App\Models\Klant;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -15,15 +17,6 @@ class KamerSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('kamer')->insert([
-            'sort' => 'lux',
-            'foto' => 'asdfgaods[ohga',
-            'Kamernummer' => 123,
-            'opervlakte' => 4.5,
-            'minibar_beschikbaarheid' => false,
-            'bad_beschikbaarheid' => true,
-            'aantal_personen' => 4,
-            'prijs' => 69.99
-        ]);
+        Kamer::factory()->count(5)->for(Klant::factory()->create())->create();
     }
 }

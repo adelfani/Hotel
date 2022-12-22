@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Kamer;
+use App\Models\Klant;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -15,16 +17,6 @@ class KlantSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('klant')->insert(
-        [
-            'datum_van_boeking' => date('Y-m-d'),
-            'naam' => 'fread',
-            'address' => 'antartica',
-            'Aankomstdatum' => date('Y-m-d'),
-            'Vertrekdatum' => date('Y-m-d'),
-            'Creditkaartnummer' => 134125453,
-            'Kamernummer' => 123
-        ],
-        );
+       Klant::factory()->has(Kamer::factory()->count(1))->create();
     }
 }

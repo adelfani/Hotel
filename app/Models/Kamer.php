@@ -2,10 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Klant;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Kamer extends Model
 {
     use HasFactory;
+
+    public function klant()
+    {
+        return $this->belongsTo(Klant::class);
+    }
+
 }

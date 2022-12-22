@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -37,6 +38,8 @@ Route::get('/rooms/{id}', function ($id) {
 Route::post('reservation', function () {
 
 })->name('submit');
+
+Route::resource('admin', AdminController::class);
 
 Auth::routes();
 
