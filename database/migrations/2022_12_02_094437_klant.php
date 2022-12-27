@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Kamer;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -21,7 +22,7 @@ return new class extends Migration
            $table->dateTime('Aankomstdatum');
            $table->dateTime('Vertrekdatum');
            $table->string('Creditkaartnummer');
-           $table->foreignId('Kamernummer')->nullable(false);
+           $table->foreignId('Kamernummer');
            $table->timestamps();
         });
     }

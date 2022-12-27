@@ -14,9 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('kamers', function (Blueprint $table) {
+           $table->id();
            $table->string('sort', 50);
            $table->string('foto', 100);
-           $table->integer('Kamernummer')->nullable(false)->primary();
+           $table->integer('Kamernummer');
            $table->float('opervlakte');
            $table->boolean('minibar_beschikbaarheid');
            $table->boolean('bad_beschikbaarheid');

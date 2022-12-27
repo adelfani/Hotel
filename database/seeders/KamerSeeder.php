@@ -17,6 +17,6 @@ class KamerSeeder extends Seeder
      */
     public function run()
     {
-        Kamer::factory()->count(5)->for(Klant::factory()->create())->create();
+        Kamer::factory()->count(1)->create();
     }
 }

@@ -12,7 +12,7 @@ class Klant extends Model
 
     public function kamer()
     {
-        return $this->hasOne(Kamer::class, 'Kamernummer');
+        return $this->belongsTo(Kamer::class, 'Kamernummer');
     }
 
 }

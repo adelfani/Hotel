@@ -17,6 +17,6 @@ class KlantSeeder extends Seeder
      */
     public function run()
     {
-       Klant::factory()->has(Kamer::factory()->count(1))->create();
+       Klant::factory(15)->create();
     }
 }

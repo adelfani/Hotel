@@ -15,22 +15,10 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('landingPage');
-})->name('landingPage');
-
-Route::get('/rooms', function () {
-    return view('rooms');
-})->name('rooms');
-
-Route::get('/reservation', function () {
-    return view('reservation');
-})->name('reservation');
-
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
-
+Route::view('/', 'landingPage')->name('landingPage');
+Route::view('/rooms', 'rooms')->name('rooms');
+Route::view('/reservation', 'reservation')->name('reservation');
+Route::view('/about', 'about')->name('about');
 Route::get('/rooms/{id}', function ($id) {
     echo $id;
 });

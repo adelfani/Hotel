@@ -12,7 +12,7 @@ class Kamer extends Model
 
     public function klant()
     {
-        return $this->belongsTo(Klant::class);
+        return $this->hasOne(Klant::class);
     }
 
 }

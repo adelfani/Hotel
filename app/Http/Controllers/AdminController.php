@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kamer;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -13,7 +14,10 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin');
+        $rooms = Kamer::all();
+        return view('admin', [
+            'rooms' => $rooms
+        ]);
     }
 
     /**
@@ -23,7 +27,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('adminFormCreate');
     }
 
     /**
@@ -79,6 +83,8 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $kamer = Kamer::find($id);
+        $kamer->delete();
+        return redirect()->back();
     }
 }
