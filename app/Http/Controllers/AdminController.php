@@ -90,7 +90,7 @@ class AdminController extends Controller
         $kamer = Kamer::find($id);
         $kamer->foto = $request->foto;
         if ($request->hasFile('foto')) {
-            Storage::delete('app/public/' . $kamer->foto);
+            Storage::delete('public/' . $kamer->foto);
             $path = $request->file('foto')->store('images', 'public');
             $kamer->foto = $path;
         }
@@ -114,7 +114,7 @@ class AdminController extends Controller
     public function destroy($id)
     {
         $kamer = Kamer::find($id);
-        Storage::delete($kamer->foto);
+        Storage::delete('public/' . $kamer->foto);
         $kamer->delete();
         return redirect()->back();
     }
