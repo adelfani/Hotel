@@ -16,9 +16,12 @@ class KamerFactory extends Factory
      */
     public function definition()
     {
+        $b =scandir(public_path('storage\images'));
+        $a = rand(2, count($b) -1);
+
         return [
             'sort' => fake()->word(),
-            'foto' => fake()->imageUrl(),
+            'foto' => 'images/' . $b[$a],
             'Kamernummer' => fake()->randomNumber(5, true),
             'opervlakte' => fake()->randomFloat(2, 20, 90),
             'minibar_beschikbaarheid' => fake()->boolean(),
