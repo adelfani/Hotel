@@ -38,7 +38,7 @@
             @foreach ( $rooms as $room )
             <tr>
                 <th scope="row">{{ $room->id }}</th>
-                <td><img class="img-thumbnail" src="{{ $room->foto }}" style="width: 25%" alt=""></td>
+                <td><img class="img-thumbnail" src="{{ asset('storage/' . $room->foto) }}" style="width: 25%" alt=""></td>
                 <td>{{ $room->sort }}</td>
                 <td>{{ $room->Kamernummer }}</td>
                 <td>{{ $room->opervlakte }} ⅿ²</td>
@@ -46,7 +46,7 @@
                 <td>{{ $room->bad_beschikbaarheid ? '✅' : '❌' }}</td>
                 <td>{{ $room->aantal_personen }}</td>
                 <td>€{{ $room->prijs }}</td>
-                <td><a href="{{ route('admin.edit', ['admin' => $room->id]) }}"><button type="button" class="btn btn-primary btn-sm">update</button></a></td>
+                <td><a href="{{ route('admin.show', $room->id) }}"><button type="button" class="btn btn-primary btn-sm">update</button></a></td>
                 <td>
                     <form method="POST" action="{{ route('admin.destroy', $room->id) }}">
                         @csrf
