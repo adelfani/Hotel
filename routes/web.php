@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\KlantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +57,7 @@ Route::get('/rooms/{room}', function (Kamer $room) {
 
 
 Route::resource('admin', AdminController::class);
+Route::resource('adminKlant', KlantController::class);
 
 Auth::routes();
 
