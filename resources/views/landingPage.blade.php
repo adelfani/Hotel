@@ -5,9 +5,9 @@
             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
         </div>
         <div class="col-md-12 col-lg-7 ml-auto order-lg-2 position-relative mb-5 pe-5 me-5 ps-5 ms-5">
-            <img src="{{ asset('images/hero_2.jpg') }}" class="img-fluid rounded mb-5"  alt="">
+            <img src="{{ asset('storage/images/hero_2.jpg') }}" class="img-fluid rounded mb-5"  alt="">
             <figure class="img-absolute w-25 position-absolute bottom-0 end-0">
-                <img src="{{ asset('images/food-1.jpg') }}" class="img-fluid border border-white border-5 rounded-circle" alt="">
+                <img src="{{ asset('storage/images/food-1.jpg') }}" class="img-fluid border border-white border-5 rounded-circle" alt="">
             </figure>
         </div>
     </section>
@@ -21,13 +21,13 @@
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="{{ asset('images/slider-6.jpg') }}" class="d-block w-100" alt="...">
+                <img src="{{ asset('storage/images/slider-6.jpg') }}" class="d-block w-100" alt="...">
               </div>
               <div class="carousel-item">
-                <img src="{{ asset('images/hero_2.jpg') }}" class="d-block w-100" alt="...">
+                <img src="{{ asset('storage/images/hero_2.jpg') }}" class="d-block w-100" alt="...">
               </div>
               <div class="carousel-item">
-                <img src="{{ asset('images/hero_4.jpg') }}" class="d-block w-100" alt="...">
+                <img src="{{ asset('storage/images/hero_4.jpg') }}" class="d-block w-100" alt="...">
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
