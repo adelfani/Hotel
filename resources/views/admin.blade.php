@@ -26,7 +26,6 @@
             <th scope="col">id</th>
             <th scope="col">photo</th>
             <th scope="col">sort</th>
-            <th scope="col">Kamernummer</th>
             <th scope="col">opervlakte</th>
             <th scope="col">minibar</th>
             <th scope="col">bad</th>
@@ -40,7 +39,6 @@
                 <th scope="row">{{ $room->id }}</th>
                 <td><img class="img-thumbnail" src="{{ asset('storage/' . $room->foto) }}" style="width: 25%" alt=""></td>
                 <td>{{ $room->sort }}</td>
-                <td>{{ $room->Kamernummer }}</td>
                 <td>{{ $room->opervlakte }} ⅿ²</td>
                 <td>{{ $room->minibar_beschikbaarheid ? '✅' : '❌' }}</td>
                 <td>{{ $room->bad_beschikbaarheid ? '✅' : '❌' }}</td>

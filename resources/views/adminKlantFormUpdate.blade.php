@@ -22,55 +22,41 @@
 </head>
 
 <body>
-    <div class="container mt-5">
-        <form method="POST" action="{{ route('adminKlant.update', $klant->id) }}" enctype="multipart/form-data">
+    <div class="container m-5">
+        <form method="POST" action="{{ route('adminKlant.update', $klant->id) }}" enctype="multipart/form-data" class="m-5">
             @csrf
-            @method('PATCH')
+            @method('PUT')
             <div class="row mb-3">
                 <div class="col">
-                    <label for="datum_van_boeking" class="form-label">datum van boeking:</label>
-                    <input type="text" id="datum_van_boeking" class="form-control" placeholder="datum_van_boeking"
-                        name="datum_van_boeking" value="{{ $klant->datum_van_boeking }}">
+                    <x-text-input inputType="date" textInput="datum_van_boeking" :inputValue="$klant->reserverings->datum_van_boeking" />
                 </div>
                 <div class="col">
-                    <label for="naam" class="form-label">naam:</label>
-                    <input type="text" class="form-control" placeholder="naam" id="naam" name="naam"
-                        value="{{ $klant->naam }}">
+                    <x-text-input inputType="text" textInput="naam" :inputValue="$klant->naam" />
                 </div>
             </div>
             <div class="row mb-3">
                 <div class="col">
-                    <label for="address" class="form-label">address:</label>
-                    <input type="text" class="form-control" placeholder="address" id="address" name="address"
-                        value="{{ $klant->address }}">
+                    <x-text-input inputType="text" textInput="address" :inputValue="$klant->address" />
                 </div>
                 <div class="col">
-                    <label for="Aankomstdatum" class="form-label">Aankomstdatum:</label>
-                    <input type="text" class="form-control" placeholder="Aankomstdatum" id="Aankomstdatum"
-                        name="Aankomstdatum" value="{{ $klant->Aankomstdatum }}">
+                    <x-text-input inputType="date" textInput="Aankomstdatum" :inputValue="$klant->reserverings->Aankomstdatum" />
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <label for="Vertrekdatum" class="form-label">Vertrekdatum:</label>
-                    <input type="text" class="form-control" placeholder="Vertrekdatum" id="Vertrekdatum"
-                        name="Vertrekdatum" value="{{ $klant->Vertrekdatum }}">
+                    <x-text-input inputType="date" textInput="Vertrekdatum" :inputValue="$klant->reserverings->Vertrekdatum" />
                 </div>
                 <div class="col">
-                    <label for="Creditkaartnummer" class="form-label">Creditkaartnummer:</label>
-                    <input type="text" class="form-control" placeholder="Creditkaartnummer" id="Creditkaartnummer"
-                        name="Creditkaartnummer" value="{{ $klant->Creditkaartnummer }}">
+                    <x-text-input inputType="text" textInput="Creditkaartnummer" :inputValue="$klant->Creditkaartnummer" />
                 </div>
                 <div class="col">
-                    <label for="Kamernummer" class="form-label">Kamernummer:</label>
-                    <input type="text" class="form-control" placeholder="Kamernummer" id="Kamernummer"
-                        name="Kamernummer" value="{{ $klant->Kamernummer }}">
+                    <x-text-input inputType="text" textInput="Kamernummer" :inputValue="$klant->reserverings->kamer_id" />
                 </div>
             </div>
             <button type="submit" class="btn btn-primary mt-3">Submit</button>
         </form>
         <a href="{{ route('adminKlant.index') }}"><button type="button"
-                class="btn btn-outline-primary pe-4 mt-3">Back</button></a>
+                class="btn btn-outline-primary pe-4 m-5">Back</button></a>
     </div>
 </body>
 

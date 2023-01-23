@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Kamer;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,14 +18,13 @@ class KlantFactory extends Factory
      */
     public function definition()
     {
+        $kamer = Kamer::orderBy('id', 'desc')->first();
+
         return [
-            'datum_van_boeking' => fake()->date(),
             'naam' => fake()->name(),
             'address' => fake()->address(),
-            'Aankomstdatum' => fake()->date(),
-            'Vertrekdatum' => fake()->date(),
             'Creditkaartnummer' => fake()->creditCardNumber(),
-            'Kamernummer' => Kamer::factory()
+            'kamer_id' => $kamer,
         ];
     }
 }

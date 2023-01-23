@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,18 +17,17 @@ class KamerFactory extends Factory
      */
     public function definition()
     {
-        $b =scandir(public_path('storage\images'));
-        $a = rand(2, count($b) -1);
+        $b = scandir(public_path('storage\images'));
+        $a = rand(2, count($b) - 1);
 
         return [
             'sort' => fake()->word(),
             'foto' => 'images/' . $b[$a],
-            'Kamernummer' => fake()->randomNumber(5, true),
             'opervlakte' => fake()->randomFloat(2, 20, 90),
             'minibar_beschikbaarheid' => fake()->boolean(),
             'bad_beschikbaarheid' => fake()->boolean(),
-            'aantal_personen' => fake()->randomDigit(),
-            'prijs' => fake()->randomFloat(2, 20, 150)
+            'aantal_personen' => fake()->numberBetween(1, 5),
+            'prijs' => fake()->randomFloat(2, 20, 150),
         ];
     }
 }

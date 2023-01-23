@@ -15,4 +15,8 @@ class Kamer extends Model
         return $this->hasOne(Klant::class);
     }
 
+    public function reserverings()
+    {
+        return $this->hasOne(Reservering::class);
+    }
 }

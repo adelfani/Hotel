@@ -37,13 +37,13 @@
             @foreach ( $klants as $klant )
             <tr>
                 <th scope="row">{{ $klant->id }}</th>
-                <td>{{ $klant->datum_van_boeking }}</td>
+                <td>{{ $klant->reserverings->datum_van_boeking }}</td>
                 <td>{{ $klant->naam }}</td>
                 <td>{{ $klant->address }}</td>
-                <td>{{ $klant->Aankomstdatum }}</td>
-                <td>{{ $klant->Vertrekdatum }}</td>
+                <td>{{ $klant->reserverings->Aankomstdatum }}</td>
+                <td>{{ $klant->reserverings->Vertrekdatum }}</td>
                 <td>{{ $klant->Creditkaartnummer }}</td>
-                <td>{{ $klant->Kamernummer }}</td>
+                <td>{{ $klant->reserverings->kamer_id }}</td>
                 <td><a href="{{ route('adminKlant.show', $klant->id) }}"><button type="button" class="btn btn-primary btn-sm">update</button></a></td>
                 <td>
                     <form method="POST" action="{{ route('adminKlant.destroy', $klant->id) }}">

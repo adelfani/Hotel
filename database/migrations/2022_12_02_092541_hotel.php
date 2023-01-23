@@ -17,7 +17,6 @@ return new class extends Migration
            $table->id();
            $table->string('sort', 50);
            $table->string('foto', 100);
-           $table->integer('Kamernummer');
            $table->float('opervlakte');
            $table->boolean('minibar_beschikbaarheid');
            $table->boolean('bad_beschikbaarheid');

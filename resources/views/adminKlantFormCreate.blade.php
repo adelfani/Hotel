@@ -20,55 +20,45 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
+@php
+    use Carbon\Carbon;
+@endphp
 
 <body>
-    <div class="container mt-5">
-        <form method="POST" action="{{ route('adminKlant.store') }}" enctype="multipart/form-data">
+    <div class="container m-5">
+        <form method="POST" action="{{ route('adminKlant.store') }}" enctype="multipart/form-data"
+            class="needs-validation m-5" novalidate>
             @csrf
             <div class="row mb-3">
                 <div class="col">
-                    <label for="datum_van_boeking" class="form-label">datum_van_boeking:</label>
-                    <input type="date" id="datum_van_boeking" class="form-control" placeholder="datum_van_boeking"
-                        name="datum_van_boeking">
-                </div>
-                <div class="col">
-                    <label for="naam" class="form-label">naam:</label>
-                    <input type="text" class="form-control" placeholder="naam" id="naam" name="naam">
+                    <x-text-input inputType="text" textInput="naam" />
+                    <input type="hidden" name="datum_van_boeking" value="{{ Carbon::now() }}">
                 </div>
             </div>
             <div class="row mb-3">
                 <div class="col">
-                    <label for="address" class="form-label">address:</label>
-                    <input type="text" class="form-control" placeholder="address" id="address" name="address">
+                    <x-text-input inputType="text" textInput="address" />
                 </div>
                 <div class="col">
-                    <label for="Aankomstdatum" class="form-label">Aankomstdatum:</label>
-                    <input type="date" class="form-control" placeholder="Aankomstdatum" id="Aankomstdatum"
-                        name="Aankomstdatum">
+                    <x-text-input inputType="date" textInput="Aankomstdatum" />
                 </div>
                 <div class="col">
-                    <label for="Vertrekdatum" class="form-label">Vertrekdatum:</label>
-                    <input type="date" class="form-control" placeholder="Vertrekdatum" id="Vertrekdatum"
-                        name="Vertrekdatum">
+                    <x-text-input inputType="date" textInput="Vertrekdatum" />
                 </div>
             </div>
 
             <div class="row">
                 <div class="col">
-                    <label for="Creditkaartnummer" class="form-label">Creditkaartnummer:</label>
-                    <input type="text" class="form-control" placeholder="Creditkaartnummer" id="Creditkaartnummer"
-                        name="Creditkaartnummer">
+                    <x-text-input inputType="text" textInput="Creditkaartnummer" />
                 </div>
                 <div class="col">
-                    <label for="Kamernummer" class="form-label">Kamernummer:</label>
-                    <input type="text" class="form-control" placeholder="Kamernummer" id="Kamernummer"
-                        name="Kamernummer">
+                    <x-text-input inputType="text" textInput="Kamernummer" />
                 </div>
             </div>
             <button type="submit" class="btn btn-primary mt-3">Submit</button>
         </form>
         <a href="{{ route('adminKlant.index') }}"><button type="button"
-                class="btn btn-outline-primary pe-4 mt-3">Back</button></a>
+                class="btn btn-outline-primary pe-4 m-5">Back</button></a>
     </div>
 </body>
 

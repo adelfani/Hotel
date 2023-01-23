@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Klant;
+use App\Models\Reservering;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Validator;
 
 class KlantController extends Controller
 {
@@ -38,15 +41,7 @@ class KlantController extends Controller
      */
     public function store(Request $request)
     {
-        $klant = new Klant();
-        $klant->datum_van_boeking = $request->datum_van_boeking;
-        $klant->naam = $request->naam;
-        $klant->address = $request->address;
-        $klant->Aankomstdatum = $request->Aankomstdatum;
-        $klant->Vertrekdatum = $request->Vertrekdatum;
-        $klant->Creditkaartnummer = $request->Creditkaartnummer;
-        $klant->Kamernummer = $request->Kamernummer;
-        $klant->save();
+        $this->createOrUpdate($request, 'create');
         return redirect('adminKlant');
     }
 
@@ -82,15 +77,7 @@ class KlantController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $klant = Klant::find($id);
-        $klant->datum_van_boeking = $request->datum_van_boeking;
-        $klant->naam = $request->naam;
-        $klant->address = $request->address;
-        $klant->Aankomstdatum = $request->Aankomstdatum;
-        $klant->Vertrekdatum = $request->Vertrekdatum;
-        $klant->Creditkaartnummer = $request->Creditkaartnummer;
-        $klant->Kamernummer = $request->Kamernummer;
-        $klant->save();
+        $this->createOrUpdate($request, 'update', $id);
         return redirect('adminKlant');
     }
 
@@ -105,5 +92,32 @@ class KlantController extends Controller
         $klant = Klant::find($id);
         $klant->delete();
         return redirect('adminKlant');
+    }
+
+    public function createOrUpdate(Request $request, $choice, $id = '')
+    {
+
+        $request->validate([
+            'naam' => 'required|max:100',
+            'address' => 'required|max:255',
+            'datum_van_boeking' => 'required|date',
+            'Aankomstdatum' => 'required|date|after:datum_van_boeking',
+            'Vertrekdatum' => 'required|date|after:Aankomstdatum',
+            'Creditkaartnummer' => 'required',
+        ]);
+
+        $klantReq = $request->collect()->only(['naam', 'address', 'Creditkaartnummer', 'kamer_id']);
+        $resReq = $request->collect()->only(['datum_van_boeking', 'Aankomstdatum', 'Vertrekdatum', 'kamer_id']);
+
+
+        if ($choice == 'create') {
+            Klant::create($klantReq);
+            $resReq->put('klant_id', Klant::all()->last()->id);
+            Reservering::create($resReq);
+        } elseif ($choice == 'update') {
+            Klant::where('id', $id)->updated($klantReq);
+            $resReq->put('klant_id', Klant::where('id', $id)->first()->id);
+            Reservering::where('klant_id', $id)->updated($resReq);
+        }
     }
 }

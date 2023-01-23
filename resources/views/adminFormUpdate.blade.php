@@ -19,8 +19,8 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
-    <div class="container mt-5">
-        <form method="POST" action="{{ route('admin.update', $kamer->id) }}" enctype="multipart/form-data" >
+    <div class="container m-5">
+        <form method="POST" action="{{ route('admin.update', $kamer->id) }}" enctype="multipart/form-data" class="m-5">
             @csrf
             @method('PATCH')
             <div class="row mb-3">
@@ -67,7 +67,7 @@
             </div>
             <button type="submit" class="btn btn-primary mt-3">Submit</button>
         </form>
-        <a href="{{ route('admin.index') }}"><button type="button" class="btn btn-outline-primary pe-4 mt-3">Back</button></a>
+        <a href="{{ route('admin.index') }}"><button type="button" class="btn btn-outline-primary pe-4 m-5">Back</button></a>
     </div>
 </body>
 </html>

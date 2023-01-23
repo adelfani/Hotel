@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Kamer;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,13 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('klants', function (Blueprint $table) {
-           $table->id();
-           $table->string('naam', 50);
-           $table->string('address', 150);
-           $table->string('Creditkaartnummer');
-           $table->foreignId('kamer_id');
-           $table->timestamps();
+        Schema::create('reserverings', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('kamer_id');
+            $table->foreignId('klant_id');
+            $table->date('datum_van_boeking');
+            $table->date('Vertrekdatum');
+            $table->date('Aankomstdatum');
+            $table->timestamps();
         });
     }
 
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::drop('klants');
+        Schema::dropIfExists('reserverings');
     }
 };
